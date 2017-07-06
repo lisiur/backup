@@ -1,0 +1,10 @@
+{
+  "authors": [
+    { "name": "typicode", "age": 30 },
+    { "name": "npm", "age": 29 }
+  ],
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" },
+    { "id": 2, "title": "node-server", "author": "npm" }
+  ]
+}

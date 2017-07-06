@@ -60,50 +60,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/******/ ({
 
-"use strict";
-/* unused harmony export common_var */
-/* unused harmony export common_function */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
-/* unused harmony export dec */
-let common_var = 'common-var'
+/***/ 2:
+/***/ (function(module, exports) {
 
-let common_function = id => id
-
-function add(x, y) {
-	return x + y
-}
-
-
-
-function dec(x, y) {
-	return x - y
-}
-
-/* harmony default export */ __webpack_exports__["b"] = (common_function);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_js__ = __webpack_require__(0);
- 
-
-let output = __WEBPACK_IMPORTED_MODULE_0__lib_js__["b" /* default */]('id')
-console.log(output)
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__lib_js__["a" /* add */](2,3))
 
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=bundle.js.map

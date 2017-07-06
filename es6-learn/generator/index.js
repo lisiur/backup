@@ -1,42 +1,51 @@
-function* hellowWorldGenerator() {
-  yield 'hello'
-  yield 'world'
-  return 'ending'
+const co = require('co')
+const SERVER_ROOT = "http://localhost:3001"
+const API = {
+  AUTHORS: `${SERVER_ROOT}/authors`,
+  POSTS: `${SERVER_ROOT}/posts`
 }
-
-let hw = hellowWorldGenerator()
-hw.next()
-hw.next()
-hw.next()
-hw.next()
-// hw[Symbol.iterator]() === hw
-
-let fib = {}
-fib[Symbol.iterator] = function* () {
-  let [prev, curr] = [0,1]
-  for (;;) {
-    [prev, curr] = [curr, prev + curr]
-    yield curr
+const REQUEST = {
+  getAllAuthors: () => fetch(API.AUTHORS).then(resp => resp.json()),
+  getAllPosts: () => fetch(API.POSTS).then(resp => resp.json()),
+}
+const BIZ_ASSIS = {
+  buildAuthorTable: (authors, posts) => {
+    let authorTable = {}
+    authors.forEach(author => {
+      authorTable[author.name] = {
+        age: author.age
+      }
+    })
+    posts.forEach(post => {
+      authorTable[post.author].postTitle = post.title 
+    })
+    return authorTable
+  }
+}
+const BIZ_FLOW = {
+  buildAuthorTable: (authors, posts) => {
+    let authorTable = {}
+    authors.forEach(author => {
+      authorTable[author.name] = {
+        age: author.age
+      }
+    })
+    posts.forEach(post => {
+      authorTable[post.author].postTitle = post.title 
+    })
+    return authorTable
+  },
+  getAuthorTable: async () => {
+    let [authors, posts] = await Promise.all([REQUEST.getAllAuthors(), REQUEST.getAllPosts()])
+    return BIZ_FLOW.buildAuthorTable(authors, posts)
   }
 }
 
-for (let n of fib[Symbol.iterator]()) {
-  if (n > 20) break
-  console.log(n)
-}
-console.log([...fib])
+BIZ_FLOW.getAuthorTable().then(res => console.log(res))
 
-function* f() {
-  for(let i = 0; true; i++) {
-    let reset = yield i
-    console.log('reset:', reset)
-    if(reset) {
-      i = -1
-    }
-  }
-}
-let g = f()
-console.log(g.next())
-console.log(g.next())
-console.log(g.next(true))
+// function* gen() {
+//   let [authors, posts] = yield[REQUEST.getAllAuthors(), REQUEST.getAllPosts()]
+//   return BIZ_ASSIS.buildAuthorTable(authors, posts)
+// }
+// co(gen).then(res => console.log(res))
 
