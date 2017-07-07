@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --colors",
     "server": "json-server --watch server/db.json -p 3001",
-    "bundle": "webpack"
+    "build": "webpack"
   },
   "author": "lisiurday",
   "license": "MIT",
   "devDependencies": {
-    "mockjs": "^1.0.1-beta3",
+    "html-webpack-plugin": "^2.29.0",
     "webpack": "^3.0.0"
   },
   "dependencies": {

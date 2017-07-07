@@ -1,4 +1,3 @@
-const co = require('co')
 const SERVER_ROOT = "http://localhost:3001"
 const API = {
   AUTHORS: `${SERVER_ROOT}/authors`,
@@ -23,11 +22,10 @@ const BIZ_ASSIS = {
   }
 }
 const BIZ_FLOW = {
-  getAuthorTable: function* () {
-    let [authors, posts] = yield Promise.all([REQUEST.getAllAuthors(), REQUEST.getAllPosts()])
-    return BIZ_FLOW.buildAuthorTable(authors, posts)
+  getAuthorTable: async () => {
+    let [authors, posts] = await Promise.all([REQUEST.getAllAuthors(), REQUEST.getAllPosts()])
+    return BIZ_ASSIS.buildAuthorTable(authors, posts)
   }
 }
 
-co(BIZ_FLOW.getAuthorTable()).then(res => console.log(res))
-
+BIZ_FLOW.getAuthorTable().then(res => console.log(res))
