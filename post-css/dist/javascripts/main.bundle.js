@@ -82,6 +82,7 @@ new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
   render: h => h(__WEBPACK_IMPORTED_MODULE_2__src_components_app_vue__["a" /* default */])
 })
 
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
@@ -7955,7 +7956,6 @@ module.exports = function normalizeComponent (
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'app'
@@ -7975,7 +7975,32 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     attrs: {
       "id": "app"
     }
-  }, [_c('h1', [_vm._v("h1")]), _vm._v(" "), _c('h1', [_vm._v("h2")]), _vm._v(" "), _c('h1', [_vm._v("h3")]), _vm._v(" "), _c('h1', [_vm._v("h4")]), _vm._v(" "), _c('h1', [_vm._v("h5")]), _vm._v(" "), _c('h1', [_vm._v("h6")])])
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("warning")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-success",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("warning")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-info",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("warning")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-warning",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("warning")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-error",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("warning")])])
 }]
 /* harmony default export */ __webpack_exports__["a"] = ({ render: render, staticRenderFns: staticRenderFns });
 

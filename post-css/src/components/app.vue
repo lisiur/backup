@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <button type="button" class="btn-warning">test</button>
+    <button type="button" class="btn btn-primary">warning</button>
+    <button type="button" class="btn btn-success">warning</button>
+    <button type="button" class="btn btn-info">warning</button>
+    <button type="button" class="btn btn-warning">warning</button>
+    <button type="button" class="btn btn-error">warning</button>
   </div>
 </template>
 <script>
@@ -9,15 +13,4 @@
   }
 </script>
 <style>
-  @import '../styles/constant.css';
-  :root {
-    --btn-color-warning: var(--yellow);
-    --btn-color-warning-hover: color(var(--btn-color-warning) shade(20%));
-  }
-  .btn-warning {
-    background: var(--btn-color-warning);
-    &:hover {
-      background: var(--btn-color-warning-hover);
-    }
-  }
 </style>

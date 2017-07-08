@@ -1,0 +1,70 @@
+@import './constant.css';
+
+:root {
+  --btn: {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: all .2s ease-in-out;
+  }
+  --btn-focus: {
+    outline: 0;
+  }
+}
+
+.btn {
+  @apply --btn;
+  &:focus {
+    @apply --btn-focus;
+  }
+}
+
+.btn-primary {
+  @apply --state-primary;
+  &:hover {
+    @apply --state-primary-hover;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--color-primary) alpha(50%));
+  }
+}
+.btn-info {
+  @apply --state-info;
+  &:hover {
+    @apply --state-info-hover;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--color-primary) alpha(50%));
+  }
+}
+.btn-success {
+  @apply --state-success;
+  &:hover {
+    @apply --state-success-hover;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--color-success) alpha(50%));
+  }
+}
+.btn-warning {
+  @apply --state-warning;
+  &:hover {
+    @apply --state-warning-hover;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--color-warning) alpha(50%));
+  }
+}
+.btn-error {
+  @apply --state-error;
+  &:hover {
+    @apply --state-error-hover;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px color(var(--color-error) alpha(50%));
+  }
+}

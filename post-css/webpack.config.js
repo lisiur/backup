@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const postcssPlugins = require('./postcss.config.js')
 
-module.exports = (env) => ({
+const jsConfig = (env) => ({
   entry: {
-    main: './main.js'
+    main: './main.js',
   },
   output: {
     path: __dirname,
@@ -23,7 +23,7 @@ module.exports = (env) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({ title: 'post-css', template: './src/html/template.html' }),
-    new ExtractTextPlugin("./dist/styles/[name].css"),
+    new ExtractTextPlugin("dist/styles/[name].css"),
     new webpack.LoaderOptionsPlugin({
       vue: {
         postcss: postcssPlugins,
@@ -37,3 +37,25 @@ module.exports = (env) => ({
   //   }
   // }
 })
+const cssConfig = (env) => ({
+  entry: {
+    vvue: './src/styles/all.css'
+  },
+  output: {
+    path: __dirname,
+    filename: 'dist/styles/vvue.css'
+  },
+  devtool: 'source-map',
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract(['css-loader', 'postcss-loader'])
+    }]
+  },
+  plugins: [
+    new ExtractTextPlugin("dist/styles/[name].css"),
+  ],
+})
+module.exports = (env) => {
+  return [cssConfig(env), jsConfig(env)]
+}

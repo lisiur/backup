@@ -1,6 +1,99 @@
 :root {
-  --white: #fff; 
-  --grey: #1e1e1d; 
-  --yellow: #ffad15; 
-  --offwhite: #f8f8f8;
+  /* base color */
+  --white: #fff;
+  --black: #000;
+  --blue: #0275D8;
+  --orange: #F0AD4E;
+  --green: #5CB85C;
+  --red: #D9534F;
+  --lightblue: #5BC0DE;
+
+  /* color scheme */
+  --color-primary: var(--blue);
+  --color-info: var(--lightblue);
+  --color-warning: var(--orange);
+  --color-success: var(--green);
+  --color-error: var(--red);
+
+  /* state scheme */
+  --state-primary: {
+    color: var(--white);
+    border: var(--color-primary);
+    background: var(--color-primary);
+  }
+  --state-primary-hover: {
+    color: var(--white);
+    border: color(var(--color-primary) saturation(250%) shade(30%));
+    background: color(var(--color-primary) saturation(250%) shade(30%));
+  }
+  --state-info: {
+    color: var(--white);
+    border: var(--color-primary);
+    background: var(--color-info);
+  }
+  --state-info-hover: {
+    color: var(--white);
+    border: color(var(--color-info) saturation(250%) shade(30%));
+    background: color(var(--color-info) saturation(250%) shade(30%));
+  }
+  --state-warning: {
+    color: var(--white);
+    border: var(--color-warning);
+    background: var(--color-warning);
+  }
+  --state-warning-hover: {
+    color: var(--white);
+    border: color(var(--color-warning) saturation(250%) shade(20%));
+    background: color(var(--color-warning) saturation(250%) shade(20%));
+  }
+  --state-success: {
+    color: var(--white);
+    border: var(--color-success);
+    background: var(--color-success);
+  }
+  --state-success-hover: {
+    color: var(--white);
+    border: color(var(--color-success) saturation(250%) shade(50%));
+    background: color(var(--color-success) saturation(250%) shade(50%));
+  }
+  --state-error: {
+    color: var(--white);
+    border: var(--color-error);
+    background: var(--color-error);
+  }
+  --state-error-hover: {
+    color: var(--white);
+    border: color(var(--color-error) saturation(250%) shade(20%));
+    background: color(var(--color-error) saturation(250%) shade(20%));
+  }
+
+  /* alert scheme */
+  --alert-info: {
+    color: var(--color-info);
+    background: color(var(--color-info) tint(35%));
+  }
+  --alert-success: {
+    color: var(--color-success);
+    background: color(var(--color-success) tint(35%));
+  }
+  --alert-warning: {
+    color: var(--color-warning);
+    background: color(var(--color-warning) tint(25%));
+  }
+
+}
+:root {
+  --btn-color-warning: var(--yellow);
+  --btn-color-warning-hover: color(var(--btn-color-warning) w(20%));
+}
+
+:root {
+  --light-theme: {
+    background: white;
+    color: black;
+  }
+  --dark-theme: {
+    background: black;
+    color: white;
+  }
 }
