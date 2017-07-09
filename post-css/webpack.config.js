@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const postcssPlugins = require('./postcss.config.js')
 
 const jsConfig = (env) => ({
@@ -11,9 +12,17 @@ const jsConfig = (env) => ({
     path: __dirname,
     filename: 'dist/javascripts/[name].bundle.js'
   },
-  devtool: 'source-map',
   module: {
     rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
+        }
+      }
+    }, {
       test: /\.css$/,
       use: ExtractTextPlugin.extract(['css-loader', 'postcss-loader'])
     }, {
@@ -22,14 +31,16 @@ const jsConfig = (env) => ({
     }]
   },
   plugins: [
-    new HtmlWebpackPlugin({ title: 'post-css', template: './src/html/template.html' }),
+    new HtmlWebpackPlugin({ title: 'post-css', template: './src/templates/template.html' }),
     new ExtractTextPlugin("dist/styles/[name].css"),
     new webpack.LoaderOptionsPlugin({
       vue: {
-        postcss: postcssPlugins,
-        autoprefixer: false
+        postcss: postcssPlugins
       }
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    }),
   ],
   // resolve: {
   //   alias: {
@@ -43,9 +54,9 @@ const cssConfig = (env) => ({
   },
   output: {
     path: __dirname,
-    filename: 'dist/styles/vvue.css'
+    filename: 'dist/styles/[name].css'
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   module: {
     rules: [{
       test: /\.css$/,
@@ -54,6 +65,10 @@ const cssConfig = (env) => ({
   },
   plugins: [
     new ExtractTextPlugin("dist/styles/[name].css"),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.min\.css$/,
+      cssProcessorOptions: { discardComments: {removeAll: true} }
+    })
   ],
 })
 module.exports = (env) => {
