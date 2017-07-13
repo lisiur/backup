@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const pages = ['module', 'generator', 'async', 'proxy', 'map']
+const pages = ['module', 'generator', 'async', 'proxy', 'map', 'object']
 module.exports = {
 	entry: (function(pages) {
 		let entries = {}
