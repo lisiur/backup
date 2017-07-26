@@ -1,0 +1,34 @@
+[user]
+	name = lisiurday
+	email = lisiurday@gmail.com
+[core]
+	excludesfile = /Users/lisiur/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	dt = difftool
+	l = log
+	last = log -1 HEAD
+	stats = shortlog -sn --all --no-merges
+	praise = blame
+	recap = log --all --oneline --no-merges --author=lisiurday@gmail.com
+	graph = log --graph --all --decorate --stat --date=iso
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	unstage = reset HEAD --
+	visual = !github
+
+[commit]
+	template = ~/.git-commit-template
+[color]
+	ui = true
+[gui]
+	recentrepo = /Users/lisiur/Projects/playground/backup
