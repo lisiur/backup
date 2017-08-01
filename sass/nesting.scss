@@ -1,0 +1,35 @@
+/**
+ * copyright version@1.0.0 
+ */
+ 
+ $foo: foo;
+ $bar: bar;
+ $selector: ".wrapper .content .days";
+ 
+.nest {
+  .wrapper & {
+    color: green;
+  }
+  .wrapper & .foobar {
+    color: yellow;
+  }
+  &:hover {
+    color: blue;
+  }
+  &-foo {
+    color: red;
+  }
+  &bar {
+    color: red;
+  }
+}
+
+.nest-#{$foo} {
+  &-#{$bar} {
+    color: lightblue;
+  }
+}
+
+#{$selector} {
+  color: red;
+}

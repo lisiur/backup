@@ -1,0 +1,21 @@
+/**
+ * copyright version@1.0.0 
+ */
+.wrapper .nest {
+  color: green; }
+.wrapper .nest .foobar {
+  color: yellow; }
+.nest:hover {
+  color: blue; }
+.nest-foo {
+  color: red; }
+.nestbar {
+  color: red; }
+
+.nest-foo-bar {
+  color: lightblue; }
+
+.wrapper .content .days {
+  color: red; }
+
+/*# sourceMappingURL=nesting.css.map */
