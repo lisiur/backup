@@ -6,13 +6,13 @@ const fs = require('fs')
 const app = new Koa()
 const router = require('./router.js')
 
-app.use(async (ctx, next) => {
-	console.log(ctx.request)
-	await next()
-	console.log(ctx.response)
-})
+// app.use(async (ctx, next) => {
+// 	console.log(ctx.request)
+// 	await next()
+// 	console.log(ctx.response)
+// })
 
-app.use(serve('public'));
+// app.use(serve('public'));
 
 // app.use(async (ctx, next) => {
 // 	if (ctx.request.url === '/boom') {
