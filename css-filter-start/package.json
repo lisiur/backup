@@ -1,0 +1,12 @@
+{
+  "name": "css-filter-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "sass style.scss style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -2,30 +2,21 @@ const path = require('path')
 const Koa = require('koa')
 const serve = require('koa-static')
 const fs = require('fs')
+const Router = require('koa-router')
+// const router = require('./router.js')
 
 const app = new Koa()
-const router = require('./router.js')
+const router = new Router()
 
-// app.use(async (ctx, next) => {
-// 	console.log(ctx.request)
-// 	await next()
-// 	console.log(ctx.response)
-// })
+router.get('/', function(ctx, next) {
+  ctx.body = 'GET index'
+})
 
-// app.use(serve('public'));
+router.get('/user/:username', function(ctx, next) {
+  let username = ctx.params.username
+  ctx.body = `GET user:${username}`
+})
 
-// app.use(async (ctx, next) => {
-// 	if (ctx.request.url === '/boom') {
-// 		ctx.redirect('/')
-// 		ctx.body = 'World'
-// 	} else {
-// 		let file = await new Promise((res, rej) => {
-// 			res(fs.readFileSync('./public/rebot.txt'))
-// 		})
-// 		ctx.type = '.txt'
-// 		ctx.response.attachment()
-// 		ctx.body = file
-// 	}
-// })
+app.use(router.routes())
 
 app.listen(3001)
