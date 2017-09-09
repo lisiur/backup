@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="bundle.js"></script>
+  <title>Document</title>
+  <style>
+    #touch-contrl {
+      height: 100vh;
+      width: 100vw;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="touch-contrl"></div>
+  <script>
+    var target = document.getElementById('touch-contrl')
+    var clientWidth = document.documentElement.clientWidth 
+    var clientHeight = document.documentElement.clientHeight
+    function start() {
+      var touch = event.touches[0];
+      startX = touch.pageX;
+      startY = touch.pageY;
+    }
+    function end() {
+      posx = 0
+      posy = 0
+      axios.get('http://192.168.3.163:5000/move/posx/' + posx + '/posy/' + posy)
+    }
+    function move() {
+      var touch = event.touches[0];
+      endX = touch.pageX;
+      endY = touch.pageY;
+      calcPos()
+    }
+    function calcPos() {
+      detaX = endX - startX
+      detaY = startY - endY
+      posx = detaX / clientWidth
+      posy = detaY / clientHeight
+      axios.get('http://192.168.3.163:5000/move/posx/' + posx + '/posy/' + posy)
+    }
+    target.addEventListener('touchstart', start, false)
+    target.addEventListener('touchend', end, false)
+    target.addEventListener('touchmove', move, false)
+  </script>
+</body>
+</html>
