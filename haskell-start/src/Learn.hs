@@ -46,5 +46,12 @@ numLongChains :: Int
 numLongChains = length (filter isLong (map chain [1..100]))
   where isLong xs = length xs > 15
 
-length (filter (\xs -> length xs > 15) (map chain [1..100]))
-length . filter (\xs -> length xs > 15) . map chain $ [1..100]
+v1 = length . filter (\xs -> length xs > 15) . map chain $ [1..100]
+
+-- TODO: I dont know what its mean for now
+y :: Int
+y = y + 1
+
+biggestInt, smallestInt :: Int
+biggestInt = maxBound
+smallestInt = minBound
