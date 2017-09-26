@@ -55,3 +55,9 @@ y = y + 1
 biggestInt, smallestInt :: Int
 biggestInt = maxBound
 smallestInt = minBound
+
+data Customer = Customer {
+  customerID :: Int,
+  customerName :: String,
+  customerAddress :: [String]
+} deriving (Show)
