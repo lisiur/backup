@@ -4,17 +4,12 @@ function* helloWordGenerator() {
   yield 'world'
 }
 
-var hw = helloWordGenerator()
-log(hw.next())
-log(hw.next())
-log(hw.next())
-log(hw.next())
-
 function generatorWrapper(cb) {
   let states = []
   let curIndex = 0
+  let currentArg = undefined
   let it = {
-    addState(state) {
+    yield(state) {
       states.push({value: state, done: false})
     },
   }
@@ -22,7 +17,8 @@ function generatorWrapper(cb) {
   states.push({value: finalState, done: true})
 
   return {
-    next() {
+    next(arg) {
+      currentArg = arg
       if (curIndex > states.length-1) {
         return {value: undefined, done: true}
       } else {
@@ -33,11 +29,27 @@ function generatorWrapper(cb) {
 }
 
 let my = generatorWrapper(it => {
-  it.addState('hello')
-  it.addState('world')
+  it.yield('hello')
+  it.yield('world')
 })
 
-log(my.next())
-log(my.next())
-log(my.next())
-log(my.next())
+let my2 = generatorWrapper(it => {
+  for (let i = 0; i < 3; i++) {
+    let reset = it.yield(i)
+    if (reset) { i = -1 }
+  }
+})
+function* f() {
+  for(var i = 0; true; i++) {
+    var reset = yield i;
+    if(reset) { i = -1; }
+  }
+}
+
+function* numbers(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield i
+  }
+}
+log([...numbers(1,8)])
+log(Array.from(numbers(1,8)))
