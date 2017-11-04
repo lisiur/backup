@@ -1,9 +1,9 @@
-var throttle = function( fn, interval ) {
+var throttle = function ( fn, interval ) {
     var __self = fn,
         timer,
         firstTime = true
 
-    return function() {
+    return function () {
         var args = arguments,
             __me = this,
             if ( firstTime ) {
@@ -15,10 +15,10 @@ var throttle = function( fn, interval ) {
             return false
         }
 
-        timer = setTimeout(function() {
-            clearTimeout(timer)
+        timer = setTimeout(function () {
+            clearTimeout( timer )
             timer = null
-            __self.apply(__me, args)
-        }, interval || 500)
+            __self.apply( __me, args )
+        }, interval || 500 )
     }
 }

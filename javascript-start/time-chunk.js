@@ -12,11 +12,11 @@ function timeChunk( ary, fn, count = 1 ) {
     }
 
     return function() {
-        t = setInterval(function() {
-            if ( ary.length === 0) {
+        t = setInterval( function() {
+            if ( ary.length === 0 ) {
                 return clearInterval( t )
             }
             start()
-        }, 200)
+        }, 200 )
     }
 }

@@ -2,13 +2,13 @@ function Singleton(name) {
     this.name = name
 }
 
-Singleton.prototype.getName = function () {
+Singleton.prototype.getName = function() {
     return this.name
 }
 
-Singleton.getInstance = (function () {
+Singleton.getInstance = (function() {
     var instance = null
-    return function (name) {
+    return function(name) {
         if (!instance) {
             instance = new Singleton(name)
         }
@@ -16,10 +16,10 @@ Singleton.getInstance = (function () {
     }
 })()
 
-var CreateDiv = (function () {
+var CreateDiv = (function() {
     var instance
 
-    var CreateDiv = function (html) {
+    var CreateDiv = function(html) {
         if (instance) {
             return instance
         }
@@ -28,7 +28,7 @@ var CreateDiv = (function () {
         return instance = this
     }
 
-    CreateDiv.prototype.init = function () {
+    CreateDiv.prototype.init = function() {
         var div = document.createElement('div')
         div.innerHTML = this.html
         document.body.appendChild(div)
@@ -39,20 +39,20 @@ var CreateDiv = (function () {
 
 
 // version 2
-var CreateDiv = function (html) {
+var CreateDiv = function(html) {
     this.html = html
     this.init()
 }
 
-CreateDiv.prototype.init = function (html) {
+CreateDiv.prototype.init = function(html) {
     var div = document.createElement('div')
     div.innerHTML = this.html
     document.body.appendChild(div)
 }
 
-var ProxySingletonCreateDiv = (function () {
+var ProxySingletonCreateDiv = (function() {
     var instance
-    return function (html) {
+    return function(html) {
         if (!instance) {
             instance = new CreateDiv(html)
         }
@@ -61,9 +61,9 @@ var ProxySingletonCreateDiv = (function () {
 })()
 
 // split line
-var getSingle = function (fn) {
+var getSingle = function(fn) {
     var result
-    return function () {
+    return function() {
         return result || (result = fn(arguments))
     }
 }
