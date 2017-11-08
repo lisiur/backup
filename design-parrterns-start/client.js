@@ -45,4 +45,4 @@ var Event = (function() {
         trigger,
         remove
     }
-})
+})()
