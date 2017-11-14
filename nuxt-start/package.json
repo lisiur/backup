@@ -1,0 +1,14 @@
+{
+  "name": "nuxt-start",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "nuxt": "^1.0.0-rc11"
+  }
+}
