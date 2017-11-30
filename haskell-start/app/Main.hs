@@ -1,6 +1,4 @@
-module Main where
-
-import Lib
-
-main :: IO ()
-main = someFunc
+doubleSmallNumber x = 
+    if x > 100
+        then x
+        else x * 2
