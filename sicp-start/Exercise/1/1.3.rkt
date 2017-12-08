@@ -1,4 +1,4 @@
-;; Exercise 1.2
+;; Exercise 1.3
 #lang sicp
 
 (define (sum-of-two-larger-in-three-nums a b c)
