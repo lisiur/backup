@@ -11,24 +11,26 @@
 //     console.log('p1', err)
 // })
 
-function ajax() {
-    return new Promise((resolve, reject) => {
-        reject(3)
-    })
-}
+// function ajax() {
+//     return new Promise((resolve, reject) => {
+//         reject(3)
+//     })
+// }
+//
+// function wrapper() {
+//     return ajax()
+//         .then(res => {
+//             return Promise.reject(3)
+//         })
+//         .catch(err => {
+//             console.log('3',err)
+//         })
+// }
+//
+// wrapper().then(res => {
+//     console.log(res)
+// }).catch(err => {
+//     console.log('outer', err)
+// })
 
-function wrapper() {
-    return ajax()
-        .then(res => {
-            return Promise.reject(3)
-        })
-        .catch(err => {
-            console.log('3',err)
-        })
-}
-
-wrapper().then(res => {
-    console.log(res)
-}).catch(err => {
-    console.log('outer', err)
-})
+Promise.done('')
