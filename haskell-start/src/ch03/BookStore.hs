@@ -1,3 +1,4 @@
+
 type CustomerID = Int
 type ReviewBody = String
 data BookInfo = Book Int String [String]
