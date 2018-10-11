@@ -52,3 +52,13 @@ var heat = L.heatLayer([
 ], {
   radius: 25
 }).addTo(map)
+
+
+var markers = L.markerClusterGroup()
+markers.addLayer(L.marker([32.0603, 118.7869]))
+markers.addLayer(L.marker([32.0603, 118.7969]))
+markers.addLayer(L.marker([32.0603, 118.7769]))
+markers.addLayer(L.marker([32.0603, 118.7669]))
+markers.addLayer(L.marker([32.0603, 118.7569]))
+
+markers.addTo(map)
