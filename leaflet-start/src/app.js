@@ -1,5 +1,5 @@
 var position = new L.LatLng(32.0603, 118.7969)
-var myRenderer = L.canvas({ padding: 0.5 });
+var renderer = L.canvas({ padding: 0.5 })
 var map = L.map('map').setView(position, 13)
 
 L.tileLayer
@@ -84,15 +84,49 @@ L.tileLayer
 // L.polygon(Utils.squarePoints([32.0603,118.8869])).addTo(map)
 
 var layerGroup = L.featureGroup()
-for (let latLng of [[32.0603, 118.7869], [32.0603, 118.7871]]) {
+for (let latLng of [[32.0603, 118.7869], [32.0603, 118.788]]) {
   layerGroup
     .addLayer(
       L.rectangle(L.latLng(latLng).toBounds(100), {
         color: '#ff7800',
         weight: 1,
-        renderer: 
+        renderer: renderer
       })
+        .bindPopup(L.latLng(latLng).toString(), { closeButton: false })
+        .bindTooltip('1', { permanent: true, direction: 'center' })
     )
     .addTo(map)
+    .openTooltip()
+}
+layerGroup.on('mouseover', function(event) {
+  event.layer.openPopup()
+})
+map.on('zoom', function(event) {
+  var maxLength = 1
+  var rectangle = layerGroup.getLayers()[0]
+  if (getRectangleWidth(map, rectangle) < getTooltipMaxWidth(maxLength)) {
+    hideTooltip()
+  } else {
+    showTooltip()
+  }
+})
+function showTooltip() {
+  layerGroup.getLayers().forEach(layer => {
+    layer.getTooltip().setOpacity(0.9)
+  })
+}
+function hideTooltip() {
+  layerGroup.getLayers().forEach(layer => {
+    layer.getTooltip().setOpacity(0)
+  })
+}
+function getRectangleWidth(map, rectangle) {
+  return (
+    map.latLngToLayerPoint(rectangle.getBounds().getNorthEast()).x -
+    map.latLngToLayerPoint(rectangle.getBounds().getSouthWest()).x
+  )
+}
+function getTooltipMaxWidth(textLength) {
+  return textLength * 12 + 14
 }
 map.fitBounds(layerGroup.getBounds())
