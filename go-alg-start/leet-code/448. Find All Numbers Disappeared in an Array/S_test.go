@@ -19,7 +19,7 @@ func Test_Alg(t *testing.T) {
 		[]int{},
 	}
 	for i, v := range inputs {
-		output := findDisappearedNumbers(inputs[i])
+		output := findDisappearedNumbers2(inputs[i])
 		expected := outputs[i]
 		if !checkRight(output, expected) {
 			t.Fatalf("input: %v\noutput: %v\nexpected: %v", v, output, expected)
