@@ -7,19 +7,22 @@
     "@types/node": "10.12.2",
     "@types/react": "16.4.18",
     "@types/react-dom": "16.0.9",
+    "antd": "^3.10.4",
     "husky": "^1.1.3",
     "lint-staged": "^8.0.4",
     "prettier": "^1.14.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-styleguidist": "^8.0.2",
     "typescript": "3.1.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "styleguide": "styleguidist server",
@@ -52,6 +55,11 @@
     "@storybook/addon-links": "^4.0.2",
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
-    "babel-loader": "^8.0.4"
+    "@types/react-redux": "^6.0.9",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-import": "^1.11.0",
+    "react-app-rewire-less": "^2.1.3",
+    "react-app-rewired": "^1.6.2",
+    "ts-import-plugin": "^1.5.5"
   }
 }
