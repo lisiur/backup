@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import AddTodo from './componets/AddTodo';
+import TodoList from './components/TodoList';
+// import { Button } from 'antd';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button type="primary">Button</Button>
+        <h1>Todo List</h1>
+        <TodoList />
       </div>
     );
   }
