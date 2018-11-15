@@ -28,7 +28,7 @@ class AddTodo extends Component<Props, State> {
     return (
       <div>
         <input
-          onChange={e => this.updateInput(e.target.value)}
+          onChange={e => this.updateInput((e.target as any).value)}
           value={this.state.input}
         />
         <button className="add-todo" onClick={this.handleAddTodo}>

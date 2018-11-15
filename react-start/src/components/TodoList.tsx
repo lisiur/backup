@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
-import { VISIBILITY_FILTERS } from '../constants';
-import { TODO_ITEM } from '../redux/def';
+import { VISIBILITY_FILTER } from '../constants';
+import { TODO_ITEM, STATE } from '../redux/typings/state';
 import { getTodosByVisibilityFilter } from '../redux/selectors';
 
 type Props = {
@@ -15,7 +15,7 @@ class TodoList extends Component<Props> {
     return (
       <ul className="todo-list">
         {todos && todos.length
-          ? todos.map((todo, index) => {
+          ? todos.map((todo, _) => {
               return <Todo key={`todo-${todo.id}`} todo={todo} />;
             })
           : 'No todos, yay!'}
@@ -24,7 +24,7 @@ class TodoList extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: STATE): Props => {
   const { visibilityFilter } = state;
   const todos = getTodosByVisibilityFilter(state, visibilityFilter);
   return { todos };

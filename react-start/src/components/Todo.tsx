@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { toggleTodo } from '../redux/actions';
-import { TODO_ITEM } from '../redux/def';
+import { TODO_ITEM } from '../redux/typings/state';
 
 type Props = {
   todo: TODO_ITEM;
+  toggleTodo: typeof toggleTodo;
 };
 
 class Todo extends Component<Props> {
   render() {
-    const { todo } = this.props;
+    const { todo, toggleTodo } = this.props;
     return (
       <li className="todo-item" onClick={() => toggleTodo(todo.id)}>
         {todo && todo.completed ? '👌' : '👋'}{' '}

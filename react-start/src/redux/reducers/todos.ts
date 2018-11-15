@@ -1,6 +1,7 @@
 import { ADD_TODO, TOGGLE_TODO } from '../actionTypes';
 import { Reducer } from 'redux';
-import { TODOS, ACTION } from '../def';
+import { TODOS } from '../typings/state';
+import { ACTION } from '../typings/action';
 
 const initialState: TODOS = {
   allIds: [],

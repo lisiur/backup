@@ -1,27 +1,27 @@
-import { VISIBILITY_FILTERS } from '../constants';
-import { LocalStore, TODO_ITEM } from './def';
+import { STATE, TODO_ITEM } from './typings/state';
+import { VISIBILITY_FILTER } from '../constants';
 
-export const getTodosState = (store: LocalStore) => store.todos;
+export const getTodosState = (state: STATE) => state.todos;
 
-export const getTodoList = (store: LocalStore) => getTodosState(store).allIds;
+export const getTodoList = (state: STATE) => getTodosState(state).allIds;
 
-export const getTodoById = (store: LocalStore, id: string): TODO_ITEM =>
-  getTodosState(store).byIds[id];
+export const getTodoById = (state: STATE, id: string): TODO_ITEM =>
+  getTodosState(state).byIds[id];
 
-export const getTodos = (store: LocalStore): TODO_ITEM[] =>
-  getTodoList(store).map(id => getTodoById(store, id));
+export const getTodos = (state: STATE): TODO_ITEM[] =>
+  getTodoList(state).map(id => getTodoById(state, id));
 
 export const getTodosByVisibilityFilter = (
-  store: LocalStore,
-  visibilityFilter: string
-) => {
-  const allTodos = getTodos(store);
+  state: STATE,
+  visibilityFilter: VISIBILITY_FILTER
+): TODO_ITEM[] => {
+  const allTodos = getTodos(state);
   switch (visibilityFilter) {
-    case VISIBILITY_FILTERS.COMPLETED:
+    case VISIBILITY_FILTER.COMPLETED:
       return allTodos.filter(todo => todo.completed);
-    case VISIBILITY_FILTERS.INCOMPLETE:
+    case VISIBILITY_FILTER.INCOMPLETE:
       return allTodos.filter(todo => !todo.completed);
-    case VISIBILITY_FILTERS.ALL:
+    case VISIBILITY_FILTER.ALL:
       return allTodos;
   }
 };
