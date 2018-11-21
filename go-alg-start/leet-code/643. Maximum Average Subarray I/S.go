@@ -1,16 +1,14 @@
 package alg
 
 func findMaxAverage(nums []int, k int) float64 {
-	var sum = -10000
 	var tmp = 0
-	for i := 0; i < len(nums)-k+1; i++ {
-		if i == 0 {
-			for j := 0; j < k; j++ {
-				tmp += nums[j]
-			}
-		} else {
-			tmp = tmp + nums[i+k-1] - nums[i-1]
-		}
+	var sum = 0
+	for i := 0; i < k; i++ {
+		sum += nums[i]
+	}
+	tmp = sum
+	for i := k; i < len(nums); i++ {
+		tmp += nums[i] - nums[i-k]
 		if tmp > sum {
 			sum = tmp
 		}

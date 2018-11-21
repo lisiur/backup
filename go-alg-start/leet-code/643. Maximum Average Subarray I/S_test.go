@@ -17,7 +17,7 @@ func Test_Alg(t *testing.T) {
 	var outputs = []float64{
 		12.75,
 		-999,
-		-594.58065,
+		-594.5806451612904,
 	}
 	for i, v := range inputs {
 		var output = findMaxAverage(inputs[i], inputs2[i])
