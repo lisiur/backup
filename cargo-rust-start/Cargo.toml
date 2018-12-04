@@ -1,0 +1,8 @@
+[package]
+name = "cargo-rust-start"
+version = "0.1.0"
+authors = ["lisiurday <lisiurday@gmail.com>"]
+
+[dependencies]
+
+rand = "0.3.14"

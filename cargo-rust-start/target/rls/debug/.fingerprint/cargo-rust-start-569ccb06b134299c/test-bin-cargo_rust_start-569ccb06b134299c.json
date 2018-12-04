@@ -1,0 +1,1 @@
+{"rustc":12235846850856590500,"features":"[]","target":16952218471920369474,"profile":9016913783023414157,"path":1036222786711178230,"deps":[["rand v0.3.22","rand",12400770992182796595]],"local":[{"MtimeBased":[[1543885089,245246763],".fingerprint/cargo-rust-start-569ccb06b134299c/dep-test-bin-cargo_rust_start-569ccb06b134299c"]}],"rustflags":[],"edition":"Edition2015"}
