@@ -1,0 +1,1 @@
+cat /dev/stdin | head -n3 | tail -n1
