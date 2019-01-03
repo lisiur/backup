@@ -14,3 +14,6 @@ echo $a
 
 let "a = $1 + 30"
 echo $a
+
+let a=$1*2
+echo $a
