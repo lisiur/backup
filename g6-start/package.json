@@ -1,0 +1,29 @@
+{
+  "name": "g6-start",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "npx webpack-dev-server --open",
+    "build": "npx webpack --progress --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "standard": {
+    "globals": [
+      "Vue"
+    ]
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "source-map": "^0.7.3",
+    "standard": "^12.0.1",
+    "vue": "^2.6.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

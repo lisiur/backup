@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./plugins//jsplumb.js"></script>
+    <script src="./plugins/vue.js"></script>
+    <style>
+      #diagramContainer {
+        width: 500px;
+        height: 500px;
+        border: 1px solid #ccc;
+        position: relative;
+      }
+      .interface-data_load,
+      .interface-data_sort,
+      .interface-data_filter,
+      .interface-data_update,
+      .interface-data_forecast,
+      .interface-data_merge {
+        position: absolute;
+        /* width: 80px; */
+        height: 80px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div style="position: relative;">
+        <button @click="addItem">add item</button>
+        <button class="drag-item" data-type="data_load">
+          读表
+        </button>
+        <button class="drag-item" data-type="data_sort">
+          排序
+        </button>
+        <button class="drag-item" data-type="data_filter">
+          筛选
+        </button>
+        <button class="drag-item" data-type="data_update">
+          入库
+        </button>
+        <button class="drag-item" data-type="data_forecast">
+          入库
+        </button>
+        <button class="drag-item" data-type="data_merge">
+          入库
+        </button>
+      </div>
+      <div id="diagramContainer"></div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
